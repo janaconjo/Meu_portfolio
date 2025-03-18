@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="img/web-design-with-hands-sale-background_23-2151649818.avif">
+
+
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Jana</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+    
+    <section id="home" class="hero">
+        <h1>Oi, eu sou Jana, uma <span>Front-end</span></h1>
+        <button onclick="downloadCV()">Meu CV</button>
+
+    </section>
+
+    <section id="about">
+        <h2>Sobre mim</h2>
+        <div class="about-container card">
+            <img src="img/minhafoto.jpg" alt="Jana">
+            <div class="about-text">
+                <p>Meu nome é Jana Leonardo, sou moçambicana e apaixonada por tecnologia e desenvolvimento web. Atualmente, estou cursando Sistemas e Redes Computacionais na Universidade Wutivi, onde venho adquirindo conhecimentos sólidos em programação.</p>
+                <p>Tenho experiência com diversas tecnologias, incluindo HTML, CSS, JavaScript, React e TypeScript. Além disso, já trabalhei em projetos acadêmicos que envolvem desenvolvimento de aplicativos móveis e sites.</p>
+             
+        </div>
+    </section>
+    
+    <section id="skills">
+        <h2>Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <span>HTML</span>
+                <div class="progress-bar">
+                    <div class="progress" data-width="80%">80%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>CSS</span>
+                <div class="progress-bar">
+                    <div class="progress" data-width="75%">75%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>JavaScript</span>
+                <div class="progress-bar">
+                    <div class="progress" data-width="65%">65%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>React</span>
+                <div class="progress-bar">
+                    <div class="progress" data-width="60%">60%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>TypeScript</span>
+                <div class="progress-bar">
+                    <div class="progress" data-width="50%">50%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-list">
+            <div class="project">
+                <img src="img/movellus.png" alt="Projeto Movellus">
+                <h3>Movellus</h3>
+                <p>Plataforma de transporte privado.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/janaconjo/Movellus.git" target="_blank">GitHub</a>
+                    <a href="https://movellus.netlify.app/" target="_blank">Ver site</a>
+                </div>
+            </div>
+    
+            <div class="project">
+                <img src="img/movellus.png" alt="Projeto site de carros">
+                <h3>Site de Carros</h3>
+                <p>Plataforma de vendas de carros.</p>
+                <div class="project-buttons">
+                    <a href="https://github.com/janaconjo/Movellus.git" target="_blank">GitHub</a>
+                    <a href="https://movellus.netlify.app/" target="_blank">Ver site</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Contato</h2>
+        <form name="contact" method="POST" data-netlify="true">
+            <input type="text" name="name" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Conteúdo" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+    
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 JanaLeonardo. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="https://github.com/janaconjo" target="_blank">
+                    <img src="img/gitHub.png" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/jana-leonardo-048271306" target="_blank">
+                    <img src="img/Link.png" alt="LinkedIn">
+                </a>
+                <a href="mailto:janaconjoo@example.com">
+                    <img src="img/email.png" alt="E-mail">
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

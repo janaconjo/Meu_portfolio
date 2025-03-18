@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background: white;
+    background: #ff426a;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -24,35 +24,67 @@ header {
     position: relative;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--primary-color);
-}
+
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 15px;
+   
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-color);
+    color:#8c3a3a;
     font-weight: bold;
     cursor: pointer;
+   
+  
+  
 }
+.nav-links a {
+    text-decoration: none;
+    color: #8c3a3a;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
+}
+
+.nav-links a:active {
+    transform: scale(0.9); /* Dá um efeito de "pressão" ao clicar */
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #8c3a3a;
+    bottom: -3px;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
 
 .menu-toggle {
     display: none;
     font-size: 24px;
     cursor: pointer;
+    color: #fafafa;
 }
 
 .hero {
     text-align: center;
     padding: 50px;
     background: var(--secondary-color);
+    border-radius: 20px;
+    
 }
 
 .hero h1 {
@@ -66,31 +98,48 @@ header {
 }
 
 .hero button {
-    background: var(--primary-color);
+    background:  #2a99b6;
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 10px;
+    
 }
 
 section {
     padding: 50px;
+   margin: 10px;
+  
 }
-
 #about .about-container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Alinha os itens verticalmente */
     gap: 20px;
     background: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.1); /* Corrigido o box-shadow */
+    max-width: 800px; /* Define um tamanho máximo */
+    margin: auto; /* Centraliza na página */
 }
 
 #about img {
     width: 200px;
     border-radius: 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
+
+#about img:hover {
+    transform: scale(1.05); /* Aumenta levemente a imagem */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    filter: brightness(1.1) contrast(1.1); /* Suave ajuste de brilho e contraste */
+}
+
+
+
+
 
 .about-text {
     flex: 1;
@@ -125,7 +174,7 @@ section {
 
 .progress {
     height: 100%;
-    background: var(--primary-color);
+    background: #ff426a;
     text-align: right;
     padding-right: 5px;
     line-height: 20px;
@@ -172,7 +221,7 @@ section {
 
 .project-buttons a {
     text-decoration: none;
-    background: var(--primary-color);
+    background:#2a99b6 ;
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -189,22 +238,22 @@ form input, form textarea {
 }
 
 form button {
-    background: var(--primary-color);
+  
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
+  
 }
 
-/* Estilização do Rodapé */
+
 footer {
-    background: var(--primary-color);
+    background: #ff426a;
     color: white;
     text-align: center;
     padding: 20px;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -274,3 +323,7 @@ footer {
     width: 24px;
     height: 24px;
 } 
+button {
+    background: #2a99b6;
+    border-radius: 10px;
+}

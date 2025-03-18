@@ -1,7 +1,7 @@
-// Função para baixar o CV (precisa estar no escopo global)
+
 function downloadCV() {
     const link = document.createElement("a");
-    link.href = "cv.docx"; // Certifique-se de que o arquivo está no local correto
+    link.href = "cv.docx"; 
     link.download = "CV.docx";
     document.body.appendChild(link);
     link.click();
@@ -14,14 +14,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const skillsSection = document.querySelector("#skills");
     const progressBars = document.querySelectorAll(".progress");
 
-    // Menu responsivo
+    
     if (menuToggle) {
         menuToggle.addEventListener("click", function () {
             navLinks.classList.toggle("active");
         });
     }
 
-    // Função para animar as barras de progresso
+   
     function animateProgressBars() {
         progressBars.forEach(bar => {
             const width = bar.getAttribute("data-width");
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Detecta quando a seção de habilidades está visível na tela
+   
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     observer.observe(skillsSection);
 
-    // Scroll suave para a seção de habilidades
+  
     const skillsLink = document.querySelector("a[href='#skills']");
     if (skillsLink) {
         skillsLink.addEventListener("click", function (event) {

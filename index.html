@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div id="progress-bar" aria-hidden="true"></div>
+
 
   <header>
     <nav role="navigation" aria-label="Menu principal">
@@ -46,7 +46,7 @@
     <h2>Sobre Mim</h2>
     <p class="section-subtitle">Um pouco da minha história e paixão por desenvolvimento web.</p>
     <div class="content">
-      <img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Foto de Ana sorrindo" tabindex="0" />
+      <img src="img/minhafoto.jpg" alt="" tabindex="0" />
       <div class="text">
         <p>Olá! Sou a Jana, desenvolvedora front end com mais de 1 anos de experiência em transformar ideias em sites e aplicações web incríveis. Meu foco é design atraente aliado a performance e usabilidade.</p>
         <p>Adoro trabalhar com HTML, CSS, JavaScript e frameworks modernos. Estou sempre aprendendo e me inspirando para entregar o melhor em cada projeto.</p>
@@ -139,10 +139,10 @@
     </div>
   </section>
 
-  <button id="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo" aria-hidden="true">⬆</button>
+
 
   <footer>
-    <p>© 2024 Jana Leonardo. Todos os direitos reservados.</p>
+    <p>© 2025 Jana Leonardo. Todos os direitos reservados.</p>
   </footer>
 
   <script>
@@ -216,11 +216,7 @@
     });
 
     
-    const backToTopBtn = document.getElementById('back-to-top');
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-
+    
    
     const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

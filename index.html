@@ -1,286 +1,932 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jana- Front End Developer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Desenvolvedora de Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-light);
+            bottom: -10px;
+            left: 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .skill {
+            background-color: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #f8fafc;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tech {
+            background-color: #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Experience Section */
+        #experience {
+            background-color: white;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #cbd5e1;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: #f8fafc;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #f8fafc;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-method i {
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 20px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-container {
+                flex-direction: column;
+            }
+
+            .hero-text, .hero-image, .about-text, .about-image {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .hero-btns {
+                justify-content: center;
+            }
+
+            .timeline::before {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 21px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
-  <header>
-    <nav role="navigation" aria-label="Menu principal">
-      <div class="logo" tabindex="0">Jana</div>
-      <ul id="nav-links" data-visible="false">
-        <li><a href="#hero" class="active" tabindex="0">Início</a></li>
-        <li><a href="#about" tabindex="0">Sobre</a></li>
-        <li><a href="#skills" tabindex="0">Habilidades</a></li>
-        <li><a href="#projects" tabindex="0">Projetos</a></li>
-        <li><a href="#contact" tabindex="0">Contato</a></li>
-      </ul>
-      <a href="CV.docx" download class="btn-download-cv" aria-label="Baixar currículo PDF" tabindex="0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-        CV
-      </a>
-      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links" tabindex="0">
-        <div></div>
-        <div></div>
-        <div></div>
-      </button>
-    </nav>
-  </header>
-
-  <section id="hero" aria-label="Seção de introdução">
-    <h1>Olá, eu sou a Jana</h1>
-    <p>Desenvolvedora Front End apaixonada por criar experiências digitais lindas e funcionais.</p>
-    <button class="btn-primary" id="btn-contact" aria-label="Ir para contato">Fale comigo</button>
-  </section>
-
-  <section id="about" aria-label="Sobre mim" tabindex="0">
-    <h2>Sobre Mim</h2>
-    <p class="section-subtitle">Um pouco da minha história e paixão por desenvolvimento web.</p>
-    <div class="content">
-      <img src="img/minhafoto.jpg" alt="" tabindex="0" />
-      <div class="text">
-        <p>Olá! Sou a Jana, desenvolvedora front end com mais de 1 anos de experiência em transformar ideias em sites e aplicações web incríveis. Meu foco é design atraente aliado a performance e usabilidade.</p>
-        <p>Adoro trabalhar com HTML, CSS, JavaScript e frameworks modernos. Estou sempre aprendendo e me inspirando para entregar o melhor em cada projeto.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" aria-label="Minhas habilidades" tabindex="0">
-    <h2>Habilidades</h2>
-    <p class="section-subtitle">Tecnologias e ferramentas que domino e amo usar</p>
-    <div class="skills-grid" role="list" aria-label="Lista de habilidades">
-      <div class="skill-badge" title="HTML5" tabindex="0" role="listitem">
-        <i aria-hidden="true">🌐</i> HTML5
-      </div>
-      <div class="skill-badge" title="CSS3" tabindex="0" role="listitem">
-        <i aria-hidden="true">🎨</i> CSS3
-      </div>
-      <div class="skill-badge" title="JavaScript (ES6+)" tabindex="0" role="listitem">
-        <i aria-hidden="true">⚡</i> JavaScript
-      </div>
-      <div class="skill-badge" title="React" tabindex="0" role="listitem">
-        <i aria-hidden="true">⚛️</i> React
-      </div>
-      <div class="skill-badge" title="Git & GitHub" tabindex="0" role="listitem">
-        <i aria-hidden="true">🐙</i> Git &amp; GitHub
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" aria-label="Meus projetos" tabindex="0">
-    <h2>Projetos</h2>
-    <p class="section-subtitle">Aqui estão alguns dos meus trabalhos mais legais</p>
-    <div class="projects-grid" role="list">
-      <article class="project-card" tabindex="0" role="listitem" aria-label="Projeto: Loja Online">
-        <img  src="img/young-uber-driver-car-interior.jpg" alt="" />
-        <div class="project-content">
-          <h3 class="project-title">Movellus</h3>
-          <p class="project-description">Site de Transporte privado.</p>
-          <div class="project-links">
-            <a href="https://github.com/janaconjo/Movellus.git" target="_blank" rel="noopener" aria-label="Ver código no GitHub">GitHub</a>
-            <a href="https://movellus.netlify.app/" target="_blank" rel="noopener" aria-label="Ver demonstração ao vivo">Ver</a>
-          </div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Portfolio</a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#experience">Experiência</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
-      </article>
-      <article class="project-card" tabindex="0" role="listitem" aria-label="Projeto: Blog Pessoal">
-        <img  src="img/man-wearing-apron-baking-kitchen.jpg" alt="Captura do blog pessoal" />
-        <div class="project-content">
-          <h3 class="project-title">Pastelaria</h3>
-          <p class="project-description">Site de Pastelaria</p>
-          <div class="project-links">
-            <a href="https://github.com/janaconjo/Pastelaria_para-so.git" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://pastelaria-paraiso.netlify.app/" target="_blank" rel="noopener">Ver</a>
-          </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Olá, eu sou <span style="color: var(--primary);">Ana Silva</span></h1>
+                    <p>Desenvolvedora de Software Full Stack apaixonada por criar soluções digitais inovadoras e impactantes.</p>
+                    <div class="hero-btns">
+                        <a href="#projects" class="btn">Ver Projetos</a>
+                        <a href="#contact" class="btn btn-outline">Contato</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/51cc49da-8a49-4322-99a0-4f272f977809.png" alt="Retrato profissional de Ana Silva, desenvolvedora de software, sorrindo em um ambiente de trabalho moderno" />
+                </div>
+            </div>
         </div>
-      </article>
-      <article class="project-card" tabindex="0" role="listitem" aria-label="Projeto: Dashboard Analytics">
-        <img src="img/restaurant-hall-with-red-brick-walls-wooden-tables-pipes-ceiling.jpg" />
-        <div class="project-content">
-          <h3 class="project-title">Restaurante</h3>
-          <p class="project-description">Site de um Restaurante.</p>
-          <div class="project-links">
-            <a href="https://github.com/janaconjo/Restaurante.git" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://restaurante0.netlify.app/" target="_blank" rel="noopener">Ver</a>
-          </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Com mais de 5 anos de experiência no mercado de tecnologia, me especializei no desenvolvimento de aplicações web completas, desde o front-end até a integração com back-end e bancos de dados.</p>
+                    <p>Minha abordagem combina atenção aos detalhes com visão sistêmica, garantindo que cada projeto não apenas funcione perfeitamente, mas também atenda às necessidades reais dos usuários e do negócio.</p>
+                    
+                    <h3>Habilidades Técnicas</h3>
+                    <div class="skills">
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">TypeScript</span>
+                        <span class="skill">React</span>
+                        <span class="skill">Node.js</span>
+                        <span class="skill">Express</span>
+                        <span class="skill">PostgreSQL</span>
+                        <span class="skill">MongoDB</span>
+                        <span class="skill">Git</span>
+                        <span class="skill">Docker</span>
+                        <span class="skill">AWS</span>
+                        <span class="skill">Google Cloud</span>
+                        <span class="skill">UI/UX Design</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a749cda4-8256-4f59-9fd2-5050d4c7bb97.png" alt="Ana Silva trabalhando em seu laptop em um café moderno, com código na tela e uma xícara de café ao lado" />
+                </div>
+            </div>
         </div>
-      </article>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact" aria-label="Contato" tabindex="0">
-    <h2>Contato</h2>
-    <p class="section-subtitle">Quer entrar em contato? Me mande uma mensagem!</p>
-    <div class="container">
-      <form id="contact-form" novalidate>
-        <div class="form-group">
-          <input type="text" id="name" name="name" placeholder=" " required aria-required="true" aria-describedby="name-desc" />
-          <label for="name" class="floating-label">Seu nome</label>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projetos Recentes</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/288b714d-79bf-4289-a033-efa95f6873ac.png" alt="Dashboard de análise de dados com gráficos interativos e painel de controle moderno" />
+                    </div>
+                    <div class="project-info">
+                        <h3>Plataforma de Analytics</h3>
+                        <p>Sistema completo de análise de dados com visualizações interativas e relatórios automatizados para empresas.</p>
+                        <div class="project-tech">
+                            <span class="tech">React</span>
+                            <span class="tech">D3.js</span>
+                            <span class="tech">Node.js</span>
+                            <span class="tech">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-outline">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3ae4e60d-3780-408f-a3b5-5d2e4ac82c1b.png" alt="Aplicativo móvel de e-commerce com interface limpa e produtos bem organizados" />
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Mobile</h3>
+                        <p>Aplicativo de comércio eletrônico com sistema de pagamento integrado, carrinho e recomendações personalizadas.</p>
+                        <div class="project-tech">
+                            <span class="tech">React Native</span>
+                            <span class="tech">Redux</span>
+                            <span class="tech">Firebase</span>
+                            <span class="tech">Stripe API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-outline">Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4e27683f-d79d-4733-b1ee-b0c5e4d946da.png" alt="Interface de sistema de gerenciamento de conteúdo com painel de administração e lista de publicações" />
+                    </div>
+                    <div class="project-info">
+                        <h3>Sistema de CMS</h3>
+                        <p>Plataforma de gerenciamento de conteúdo com editor WYSIWYG, controle de usuários e publicação programada.</p>
+                        <div class="project-tech">
+                            <span class="tech">Vue.js</span>
+                            <span class="tech">Nuxt.js</span>
+                            <span class="tech">MongoDB</span>
+                            <span class="tech">GraphQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">Ver Demo</a>
+                            <a href="#" class="btn btn-outline">Código</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <input type="email" id="email" name="email" placeholder=" " required aria-required="true" aria-describedby="email-desc" />
-          <label for="email" class="floating-label">Seu email</label>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2>Experiência Profissional</h2>
+            <div class="timeline">
+                <!-- Experience 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 - Atual</span>
+                        <h3>TechSolutions Inc.</h3>
+                        <p><strong>Cargo:</strong> Desenvolvedora Sênior Full Stack</p>
+                        <p>Lidero o desenvolvimento de projetos complexos, atuando como referência técnica para a equipe e garantindo a entrega de soluções de alta qualidade.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2018 - 2021</span>
+                        <h3>Digital Innovation Ltda.</h3>
+                        <p><strong>Cargo:</strong> Desenvolvedora Front-end</p>
+                        <p>Responsável por implementar interfaces de usuário complexas e componentizadas, trabalhando em estreita colaboração com os times de design e back-end.</p>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2016 - 2018</span>
+                        <h3>Startup AgileTech</h3>
+                        <p><strong>Cargo:</strong> Desenvolvedora Júnior</p>
+                        <p>Atuei no desenvolvimento de MVPs e implementação de novas funcionalidades, aprendendo sobre o ciclo completo de produto digital.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <textarea id="message" name="message" placeholder=" " required aria-required="true" aria-describedby="message-desc" minlength="10"></textarea>
-          <label for="message" class="floating-label">Sua mensagem</label>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>Tem um projeto em mente ou gostaria de trabalhar juntos? Entre em contato pelos canais abaixo ou preencha o formulário.</p>
+                    
+                    <h3>Informações de Contato</h3>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <span>contato@anasilva.dev</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <span>+55 11 98765-4321</span>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>São Paulo, Brasil</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <button type="submit" aria-label="Enviar mensagem">Enviar</button>
-        <div class="form-message" role="alert" aria-live="polite"></div>
-      </form>
-    </div>
-  </section>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Sobre Mim</h3>
+                    <p>Desenvolvedora de Software Full Stack com foco em criar soluções web inovadoras e eficientes.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#projects">Projetos</a></li>
+                        <li><a href="#experience">Experiência</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Assine para receber atualizações sobre novos projetos e artigos técnicos.</p>
+                    <form id="newsletterForm">
+                        <div class="form-group">
+                            <input type="email" placeholder="Seu e-mail" required>
+                            <button type="submit" class="btn" style="margin-top: 10px;">Assinar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Ana Silva. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-  <footer>
-    <p>© 2025 Jana Leonardo. Todos os direitos reservados.</p>
-  </footer>
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
 
-  <script>
-   
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-    function toggleMenu() {
-      const isOpen = navLinks.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-    }
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const newsletterForm = document.getElementById('newsletterForm');
 
-    hamburger.addEventListener('click', toggleMenu);
-
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        toggleMenu();
-      }
-    });
-
-   
-    document.querySelectorAll('#nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', false);
-      });
-    });
-
-  
-    const sections = document.querySelectorAll('section[id]');
-    const navItems = document.querySelectorAll('#nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 90;
-        if(scrollY >= sectionTop){
-          current = section.getAttribute('id');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+                
+                // Here you would typically send the data to a server
+                console.log('Form submitted:', data);
+                
+                // Show success message
+                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
+                this.reset();
+            });
         }
-      });
 
-      navItems.forEach(link => {
-        link.classList.remove('active');
-        if(link.getAttribute('href') === '#' + current){
-          link.classList.add('active');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = this.querySelector('input[type="email"]').value;
+                
+                // Here you would typically send the email to a newsletter service
+                console.log('Newsletter subscription:', email);
+                
+                // Show success message
+                alert('Obrigada por se inscrever na nossa newsletter!');
+                this.reset();
+            });
         }
-      });
 
-     
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrolled = (window.scrollY / docHeight) * 100;
-      document.getElementById('progress-bar').style.width = scrolled + '%';
-
-     
-      const backToTopBtn = document.getElementById('back-to-top');
-      if(window.scrollY > 400){
-        backToTopBtn.classList.add('show');
-        backToTopBtn.setAttribute('aria-hidden', 'false');
-      } else {
-        backToTopBtn.classList.remove('show');
-        backToTopBtn.setAttribute('aria-hidden', 'true');
-      }
-    });
-
-   
-    const btnContact = document.getElementById('btn-contact');
-    btnContact.addEventListener('click', () => {
-      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-    });
-
-    
-    
-   
-    const scrollObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('visible');
-          scrollObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15
-    });
-
-    document.querySelectorAll('section').forEach(section => {
-      scrollObserver.observe(section);
-    });
-
-
-    const form = document.getElementById('contact-form');
-    const formMessage = form.querySelector('.form-message');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-
-      function validateEmail(email) {
-        const re = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-        return re.test(email);
-      }
-
-      if(name.length < 2){
-        formMessage.style.color = '#6a1b4d';
-        formMessage.textContent = 'Por favor, digite seu nome completo.';
-        form.name.focus();
-        return;
-      }
-
-      if(!validateEmail(email)){
-        formMessage.style.color = '#6a1b4d';
-        formMessage.textContent = 'Por favor, digite um email válido.';
-        form.email.focus();
-        return;
-      }
-
-      if(message.length < 10){
-        formMessage.style.color = '#6a1b4d';
-        formMessage.textContent = 'Sua mensagem deve ter pelo menos 10 caracteres.';
-        form.message.focus();
-        return;
-      }
-
-    
-      formMessage.style.color = '#2e7d32';
-      formMessage.textContent = 'Enviando...';
-
-      setTimeout(() => {
-        formMessage.style.color = '#2e7d32';
-        formMessage.textContent = 'Mensagem enviada com sucesso! Obrigada pelo contato 😊';
-        form.reset();
-      }, 1700);
-    });
-  </script>
+        // Animation on Scroll (basic implementation)
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const header = document.querySelector('header');
+            
+            if (scrollPosition > 100) {
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
 

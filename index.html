@@ -612,6 +612,44 @@
                 gap: 15px;
             }
         }
+        body.dark-mode {
+    --primary: #ad9ccc;
+    --primary-light: #c1b3e0;
+    --dark: #111112;   /* texto fica claro */
+    --light: #30304d;  /* fundo escuro */
+    --gray: #94a3b8;
+    background-color: var(--l);
+    color: var(--dark);
+}
+
+body.dark-mode p,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode a {
+    color: var(--dark);
+}
+
+body.dark-mode header {
+    background-color: var(--light);
+}
+
+body.dark-mode .contact-form,
+body.dark-mode .project-card,
+body.dark-mode .timeline-content {
+    background-color: ; /* tom mais escuro */
+    color: var(--dark);
+}
+
+body.dark-mode footer {
+    background-color: #30304d;
+    color: var(--dark);
+}
+
+body.dark-mode .footer-bottom {
+    color: var(--gray);
+}
+
     </style>
 </head>
 <body>
@@ -625,6 +663,8 @@
                     <li><a href="#about">Sobre</a></li>
                     <li><a href="#projects">Projetos</a></li>
                     <li><a href="#contact">Contato</a></li>
+                    <button id="darkModeToggle" class="btn btn-outline">🌙 Modo Escuro</button>
+
                 </ul>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -914,7 +954,13 @@
             } else {
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             }
+            
         });
+        const toggleButton = document.getElementById('darkModeToggle');
+toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
+
     </script>
 </body>
 </html>

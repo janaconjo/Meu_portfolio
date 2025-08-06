@@ -6,6 +6,11 @@
     <title>Jana Conjo | Desenvolvedora de Software</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="index.css">
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    emailjs.init("_YKOeMXaxRBj_PXjb"); // substitui pela tua User ID
+</script>
+
 </head>
 <body>
 
@@ -183,7 +188,7 @@
                         </div>
                         <div class="form-group">
                             <label for="subject">Assunto</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <input type="text" id="subject" name="title" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Mensagem</label>
@@ -236,6 +241,20 @@
 
  
     <script>
+        const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault(); // evita reload da página
+
+    emailjs.sendForm('service_sefmr7v', 'template_b72ko4c', this)
+        .then(function() {
+            alert('E-mail enviado com sucesso! 😄');
+            form.reset();
+        }, function(error) {
+            alert('Erro ao enviar o e-mail: ' + JSON.stringify(error));
+        });
+});
+
         // Menu 
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');

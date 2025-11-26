@@ -95,12 +95,12 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- seccao de projectos -->
     <section id="projects">
         <div class="container">
             <h2>Projetos Recentes</h2>
             <div class="projects-grid">
-                <!-- Project 1 -->
+                <!-- Projecto1 -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="img/movellus.png" />
@@ -120,7 +120,7 @@
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Projecto 2 -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="img/pastelaria.jpg" />
@@ -141,7 +141,7 @@
                     </div>
                 </div>
 
-              
+               <!-- Projecto 3 -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="img/carro (1).jpg" />
@@ -161,9 +161,30 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/justica.jpg" />
+                    </div>
+                    <div class="project-info">
+                        <h3>Sistema Jurídico</h3>
+                        <p>Ainda em desenvolvimento...</p>
+                        <div class="project-tech">
+                            <span class="tech">React</span>
+                            <span class="tech">Node js</span>
+                            <span class="tech">Firebase</span>
+                           
+                        </div>
+                        <div class="project-links">
+                            <a href="https://sistema-juridico.netlify.app/" class="btn">Ver</a>
+                            <a href="https://github.com/janaconjo/sistema-juridico" class="btn btn-outline">Código</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    
 
    
 
@@ -243,7 +264,7 @@
         const form = document.getElementById('contactForm');
 
 form.addEventListener('submit', function(event) {
-    event.preventDefault(); // evita reload da página
+    event.preventDefault(); 
 
     emailjs.sendForm('service_sefmr7v', 'template_b72ko4c', this)
         .then(function() {
@@ -322,6 +343,8 @@ form.addEventListener('submit', function(event) {
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
+
+
 </script>
 </body>
 </html>

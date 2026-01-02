@@ -88,6 +88,8 @@
             background-color: transparent;
             color: var(--lavender);
             border: 2px solid var(--lavender);
+            left: 20px;
+            position: relative;
         }
 
         .btn-outline:hover {
@@ -414,17 +416,20 @@
 
         .footer-col {
             flex: 1;
+            
         }
 
         .footer-col h3 {
             color: white;
             margin-bottom: 20px;
             font-size: 1.2rem;
+          
         }
 
         .footer-col p {
             color: #cbd5e1;
             margin-bottom: 20px;
+            
         }
 
         .social-links {
